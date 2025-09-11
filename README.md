@@ -5,6 +5,13 @@
 
 ---
 
+## 📖 Live Link
+
+✨ **Try it live:** [Shopping Voice Assistant](https://shopping-voice-assistant.vercel.app/)  
+
+---
+---
+
 ## 📖 Overview
 
 **BlueCartAI** is a **multilingual AI-powered voice shopping assistant** that allows users to manage shopping lists using **voice commands** in **English & Hindi**.  
