@@ -49,7 +49,11 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 // Middleware - CORS setup first
-app.use(cors())
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://your-frontend-domain.vercel.app'],
+  credentials: true
+}));
+
 app.use(express.json())
 
 // API Routes - define these BEFORE static file serving
@@ -160,13 +164,13 @@ app.post('/api/auth/login', async (req, res) => {
 })
 
 // Serve static files from the React app build directory
-app.use(express.static(path.join(__dirname, 'dist')))
+// app.use(express.static(path.join(__dirname, 'dist')))
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+// // The "catchall" handler: for any request that doesn't
+// // match one above, send back React's index.html file.
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
 
 app.listen(PORT, () => {
   console.log(`🚀 BlueCart AI server running on port ${PORT}`)
