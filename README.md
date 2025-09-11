@@ -84,19 +84,29 @@ It provides **smart product suggestions**, seasonal recommendations, pricing fil
 
 ## ⚡ Architecture & Flow
 
-```mermaid
-flowchart TD
-    A[🎙️ User Voice Command] --> B[🔊 Speech Recognition API]
-    B --> C[🧠 NLP Processing (English/Hindi)]
-    C --> D[🌐 Node.js Backend + Express]
-    D --> E[🗂️ JWT Authentication + User Session]
-    D --> F[📦 Shopping List Manager]
-    F --> G[🧠 Smart Suggestions Engine]
-    G --> H[📊 Categorization + Seasonal + Brand + Price Filters]
-    F --> I[🖥️ React + Tailwind UI]
-    H --> I
-    E --> I
- ```
+User Voice Command
+        |
+        v
+Speech Recognition API
+        |
+        v
+NLP Processing (English/Hindi)
+        |
+        v
+Node.js Backend + Express
+   |             |
+   v             v
+JWT Auth     Shopping List Manager
+                 |
+                 v
+        Smart Suggestions Engine
+                 |
+                 v
+   Categorization + Seasonal + Brand + Price Filters
+                 |
+                 v
+          React + Tailwind UI
+
 🧑‍💻 Installation & Setup
 
 # Clone the repo
