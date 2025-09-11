@@ -83,7 +83,7 @@ It provides **smart product suggestions**, seasonal recommendations, pricing fil
 ---
 
 ## ⚡ Architecture & Flow
-
+```
 User Voice Command
         |
         v
@@ -107,6 +107,7 @@ JWT Auth     Shopping List Manager
                  v
           React + Tailwind UI
 
+```
 🧑‍💻 Installation & Setup
 
 # Clone the repo
