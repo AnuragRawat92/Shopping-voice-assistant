@@ -2,10 +2,6 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-blue?logo=vercel)](https://shopping-voice-assistant.vercel.app/)  
 [![GitHub Repo](https://img.shields.io/badge/Code-GitHub-black?logo=github)](https://github.com/AnuragRawat92/Shopping-voice-assistant)  
-[![Built with React](https://img.shields.io/badge/Frontend-React-blue?logo=react)](https://react.dev/)  
-[![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)](https://nodejs.org/)  
-[![TailwindCSS](https://img.shields.io/badge/UI-TailwindCSS-38B2AC?logo=tailwindcss)](https://tailwindcss.com/)  
-[![TypeScript](https://img.shields.io/badge/Code-TypeScript-blue?logo=typescript)](https://www.typescriptlang.org/)  
 
 ---
 
@@ -82,18 +78,9 @@ flowchart TD
     F --> I[🖥️ React + Tailwind UI]
     H --> I
     E --> I
-📂 Project Structure
-bash
-Copy code
-Shopping-voice-assistant/
-│── client/           # React + Vite + Tailwind frontend
-│── server/           # Node.js + Express backend
-│── package.json      # Dependencies
-│── tsconfig.json     # TypeScript config
-│── README.md         # Documentation
+ ```
 🧑‍💻 Installation & Setup
-bash
-Copy code
+
 # Clone the repo
 git clone https://github.com/AnuragRawat92/Shopping-voice-assistant.git
 cd Shopping-voice-assistant
@@ -106,8 +93,10 @@ npm run dev
 
 # Build production
 npm run build
+
 🎤 Example Commands
 ✅ English
+
 Add 5 apples
 
 Remove milk
@@ -119,6 +108,7 @@ Show trending items
 Find toothpaste under $5
 
 🇮🇳 Hindi
+
 5 सेब जोड़ दो
 
 सेब हटा दो
@@ -128,6 +118,7 @@ Find toothpaste under $5
 सीजनल प्रोडक्ट्स बताओ
 
 🔮 Future Enhancements
+
 ✅ Support for more Indian regional languages.
 
 ✅ Payment gateway integration.
@@ -137,4 +128,5 @@ Find toothpaste under $5
 ✅ Push notifications for discounts & offers.
 
 👨‍💻 Author
+
 Anurag Rawat – IET 2025
