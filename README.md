@@ -11,6 +11,17 @@
 
 ---
 ---
+🔑 Testing Credentials
+
+For demo and testing purposes, you can log in with the following credentials:
+
+Email:    anurag@gmail.com
+Password: anurag
+
+
+👉 Use these credentials on the Login Page:
+---
+---
 
 ## 📖 Overview
 
