@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 interface AuthProps {
   setIsAuthenticated: (isAuthenticated: boolean) => void;
 }
+const BACKEND_URL = "https://bluecart-backend.onrender.com";
 
 const Auth: React.FC<AuthProps> = ({ setIsAuthenticated }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -53,7 +54,7 @@ const Auth: React.FC<AuthProps> = ({ setIsAuthenticated }) => {
     
     try {
       const res = await axios.post(
-        "/api/auth/login",
+        `${BACKEND_URL}/api/auth/login`,
         { 
           email: formData.email, 
           password: formData.password 
@@ -82,7 +83,7 @@ const Auth: React.FC<AuthProps> = ({ setIsAuthenticated }) => {
     
     try {
       const res = await axios.post(
-        "/api/auth/register",
+        `${BACKEND_URL}/api/auth/register`,
         {
           name: formData.name,
           email: formData.email,
