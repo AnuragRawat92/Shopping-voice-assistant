@@ -50,7 +50,7 @@ const User = mongoose.model('User', userSchema)
 
 // Middleware - CORS setup first
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://your-frontend-domain.vercel.app'],
+  origin: ['http://localhost:3000', 'https://shopping-voice-assistant.vercel.app/'],
   credentials: true
 }));
 
