@@ -49,8 +49,14 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 // Middleware - CORS setup first
+// app.use(cors({
+//   origin: ['http://localhost:3000', 'https://shopping-voice-assistant.vercel.app/'],
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://shopping-voice-assistant.vercel.app/'],
+  origin: 'https://shopping-voice-assistant.vercel.app', // your frontend URL
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
   credentials: true
 }));
 
