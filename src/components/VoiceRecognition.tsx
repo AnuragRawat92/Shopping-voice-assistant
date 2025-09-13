@@ -235,6 +235,7 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
       <div className="bg-gray-700/30 rounded-xl p-4">
         <h4 className="text-gray-300 font-medium mb-2">Try saying:</h4>
         <div className="space-y-1 text-sm">
+          <p className="text-gray-400">• "For 1 item say apple for mulitple like say 5 apples"</p>
           <p className="text-gray-400">• "Add rice to my list"</p>
           <p className="text-gray-400">• "Remove sugar from cart"</p>
           <p className="text-gray-400">• "Show available fruits"</p>
