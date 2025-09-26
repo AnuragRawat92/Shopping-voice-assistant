@@ -55,8 +55,11 @@ const User = mongoose.model('User', userSchema)
 // }));
 
 app.use(cors({
-  origin: 'https://shopping-voice-assistant.vercel.app', // your frontend URL
-  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  origin: [
+    "https://shopping-voice-assistant.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
 
