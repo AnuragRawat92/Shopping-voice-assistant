@@ -59,20 +59,7 @@ The challenge was to design a **multilingual voice assistant** that can:
 
 ---
 
-## ⚡ Architecture Flow
 
-```mermaid
-flowchart LR
-    A[🎙️ User Voice Command] --> B[🔊 Speech-to-Text API]
-    B --> C[🧠 NLP Processing Engine]
-    C --> D[🌐 Express Backend]
-    D --> E[🔐 JWT Authentication]
-    D --> F[📦 Shopping List Service]
-    D --> G[🧠 Suggestions Engine]
-    F --> H[💾 User Database (MongoDB)]
-    G --> H
-    H --> I[🖥️ React UI Updates]
-```
 📂 Folder Structure
 Shopping-voice-assistant/
 │── client/                 # React + Vite + Tailwind frontend
