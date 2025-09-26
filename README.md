@@ -31,6 +31,43 @@ It provides **smart product suggestions**, seasonal recommendations, pricing fil
 ✨ **Try it live:** [Shopping Voice Assistant](https://shopping-voice-assistant.vercel.app/)  
 
 ---
+## Setup
+
+setup:
+  steps:
+    - step: Download/Clone
+      description: |
+        Download the project ZIP from GitHub or clone the repo.
+        Example:
+          git clone https://github.com/AnuragRawat92/Shopping-voice-assistant.git
+          cd Shopping-voice-assistant
+
+    - step: Install Dependencies
+      commands:
+        - npm install
+      notes: Run in the root folder (this installs dependencies for both frontend and backend).
+
+    - step: Run Backend
+      commands:
+        - npm run start
+      notes: Backend will run on http://localhost:3001 (keep this terminal open).
+
+    - step: Run Frontend
+      commands:
+        - npm run dev
+      notes: Frontend will run on http://localhost:5173 (open this in your browser).
+
+usage: |
+  1. Open http://localhost:5173 in your browser.
+  2. The frontend will connect to the backend running at http://localhost:3001.
+  3. Run backend (`npm run start`) and frontend (`npm run dev`) in separate terminals.
+
+notes: |
+  - Ensure Node.js (>=18) is installed.
+  - Keep both backend and frontend running simultaneously for full functionality.
+  - Start backend first (`npm run start`), then frontend (`npm run dev`).
+
+
 
 ## 🚀 Core Features
 
