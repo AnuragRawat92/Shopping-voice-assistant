@@ -15,13 +15,15 @@ interface VoiceRecognitionProps {
   setIsListening: (listening: boolean) => void
   onTranscript: (transcript: string) => void
   isProcessing: boolean
+  selectedLanguage: string // Add this prop
 }
 
 const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
   isListening,
   setIsListening,
   onTranscript,
-  isProcessing
+  isProcessing,
+  selectedLanguage // Add this prop
 }) => {
   const [transcript, setTranscript] = useState('')
   const [isSupported, setIsSupported] = useState(false)
@@ -35,7 +37,7 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
       recognitionRef.current = new SpeechRecognition()
       recognitionRef.current.continuous = false
       recognitionRef.current.interimResults = false
-      recognitionRef.current.lang = 'en-US'
+      recognitionRef.current.lang = selectedLanguage // Use the selected language
 
       recognitionRef.current.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript
@@ -55,7 +57,7 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
       setIsSupported(false)
       setError('Your browser does not support speech recognition.')
     }
-  }, [onTranscript, setIsListening])
+  }, [onTranscript, setIsListening, selectedLanguage]) // Add selectedLanguage to dependencies
 
   const toggleListening = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -73,6 +75,30 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
       } catch {
         setError('Unable to start voice recognition.')
       }
+    }
+  }
+
+  // Get language-specific example commands
+  const getExampleCommands = () => {
+    if (selectedLanguage === 'hi-IN') {
+      return (
+        <>
+          <p className="text-gray-400">• "दूध जोड़ो" (Add milk)</p>
+          <p className="text-gray-400">• "सेब हटाओ" (Remove apples)</p>
+          <p className="text-gray-400">• "मुझे पांच केले चाहिए" (I need 5 bananas)</p>
+          <p className="text-gray-400">• "चावल" (Rice)</p>
+          <p className="text-gray-400">• "अंडे" (Eggs)</p>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <p className="text-gray-400">• "Add rice to my list"</p>
+          <p className="text-gray-400">• "Remove sugar from cart"</p>
+          <p className="text-gray-400">• "Show available fruits"</p>
+          <p className="text-gray-400">• "I need 3 bottles of oil"</p>
+        </>
+      )
     }
   }
 
@@ -95,10 +121,14 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-white mb-2 flex items-center justify-center space-x-2">
           <Zap className="w-5 h-5 text-cyan-400" />
-          <span>Smart Voice Assistant</span>
+          <span>
+            {selectedLanguage === 'hi-IN' ? 'स्मार्ट वॉयस असिस्टेंट' : 'Smart Voice Assistant'}
+          </span>
         </h3>
         <p className="text-gray-400 text-sm">
-          Tap the mic and say what you need
+          {selectedLanguage === 'hi-IN' 
+            ? 'माइक पर टैप करें और बोलें कि आपको क्या चाहिए' 
+            : 'Tap the mic and say what you need'}
         </p>
       </div>
 
@@ -179,8 +209,12 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
             exit={{ opacity: 0, y: -10 }}
             className="text-center mb-4"
           >
-            <p className="text-emerald-400 font-medium">Listening...</p>
-            <p className="text-gray-400 text-sm">Say your request</p>
+            <p className="text-emerald-400 font-medium">
+              {selectedLanguage === 'hi-IN' ? 'सुन रहा हूँ...' : 'Listening...'}
+            </p>
+            <p className="text-gray-400 text-sm">
+              {selectedLanguage === 'hi-IN' ? 'अपना अनुरोध बोलें' : 'Say your request'}
+            </p>
           </motion.div>
         )}
         
@@ -191,8 +225,12 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
             exit={{ opacity: 0, y: -10 }}
             className="text-center mb-4"
           >
-            <p className="text-cyan-400 font-medium">Processing...</p>
-            <p className="text-gray-400 text-sm">Analyzing your input</p>
+            <p className="text-cyan-400 font-medium">
+              {selectedLanguage === 'hi-IN' ? 'प्रोसेसिंग...' : 'Processing...'}
+            </p>
+            <p className="text-gray-400 text-sm">
+              {selectedLanguage === 'hi-IN' ? 'आपके इनपुट का विश्लेषण' : 'Analyzing your input'}
+            </p>
           </motion.div>
         )}
         
@@ -203,7 +241,9 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
             exit={{ opacity: 0, y: -10 }}
             className="text-center mb-4"
           >
-            <p className="text-gray-400">Press the mic to begin</p>
+            <p className="text-gray-400">
+              {selectedLanguage === 'hi-IN' ? 'शुरू करने के लिए माइक दबाएं' : 'Press the mic to begin'}
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -215,7 +255,9 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
           animate={{ opacity: 1, y: 0 }}
           className="bg-gray-700/50 rounded-xl p-4 mb-4"
         >
-          <p className="text-gray-300 text-sm font-medium mb-2">You said:</p>
+          <p className="text-gray-300 text-sm font-medium mb-2">
+            {selectedLanguage === 'hi-IN' ? 'आपने कहा:' : 'You said:'}
+          </p>
           <p className="text-white font-semibold">"{transcript}"</p>
         </motion.div>
       )}
@@ -227,23 +269,19 @@ const VoiceRecognition: React.FC<VoiceRecognitionProps> = ({
           animate={{ opacity: 1, y: 0 }}
           className="bg-red-500/20 border border-red-500/30 rounded-xl p-4 mb-4"
         >
-          <p className="text-red-400 text-sm">Error: {error}</p>
+          <p className="text-red-400 text-sm">
+            {selectedLanguage === 'hi-IN' ? 'त्रुटि:' : 'Error:'} {error}
+          </p>
         </motion.div>
       )}
 
       {/* Example Commands */}
       <div className="bg-gray-700/30 rounded-xl p-4">
-        <h4 className="text-gray-300 font-medium mb-2">Try saying:</h4>
+        <h4 className="text-gray-300 font-medium mb-2">
+          {selectedLanguage === 'hi-IN' ? 'कोशिश करें:' : 'Try saying:'}
+        </h4>
         <div className="space-y-1 text-sm">
-          <p className="text-gray-400">• "For 1 item say apple for mulitple like say 5 apples"</p>
-          <p className="text-gray-400">• "Add rice to my list"</p>
-          <p className="text-gray-400">• "Remove sugar from cart"</p>
-          <p className="text-gray-400">• "Show available fruits"</p>
-          <p className="text-gray-400">• "I need 3 bottles of oil"</p>
-                <p className="text-gray-400">• सेब</p>
-                  <p className="text-gray-400">• मुझे सेब चाहिए</p>
-                  <p className="text-gray-400">• सेब हटाओ</p>
-        
+          {getExampleCommands()}
         </div>
       </div>
     </div>
