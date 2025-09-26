@@ -1,6 +1,3 @@
-
-
-
 import { ShoppingItem } from '../types'
 
 // Product variety database for common items
