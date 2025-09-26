@@ -1,6 +1,9 @@
+
+
+
 import { ShoppingItem } from '../types'
 
-// Product variety database for common items - EXPANDED
+// Product variety database for common items
 const PRODUCT_VARIETIES: { [key: string]: string[] } = {
   apples: [
     'Red Delicious Apples',
@@ -12,11 +15,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Golden Delicious Apples',
     'McIntosh Apples',
     'Braeburn Apples',
-    'Cortland Apples',
-    'Ambrosia Apples',
-    'Jazz Apples',
-    'Envy Apples',
-    'Kanzi Apples'
+    'Cortland Apples'
   ],
   milk: [
     'Whole Milk',
@@ -28,11 +27,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Oat Milk',
     'Coconut Milk',
     'Organic Whole Milk',
-    'Lactose-Free Milk',
-    'Cashew Milk',
-    'Hemp Milk',
-    'Rice Milk',
-    'Goat Milk'
+    'Lactose-Free Milk'
   ],
   bread: [
     'Whole Wheat Bread',
@@ -44,11 +39,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Brioche Bread',
     'Ciabatta Bread',
     'Gluten-Free Bread',
-    'Artisan Bread',
-    'French Baguette',
-    'Naan Bread',
-    'Pita Bread',
-    'Focaccia Bread'
+    'Artisan Bread'
   ],
   eggs: [
     'Large Eggs',
@@ -60,11 +51,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Pasture-Raised Eggs',
     'Brown Eggs',
     'White Eggs',
-    'Omega-3 Enriched Eggs',
-    'Quail Eggs',
-    'Duck Eggs',
-    'Vegetarian Eggs',
-    'Farm Fresh Eggs'
+    'Omega-3 Enriched Eggs'
   ],
   cheese: [
     'Cheddar Cheese',
@@ -76,11 +63,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Blue Cheese',
     'Feta Cheese',
     'Parmesan Cheese',
-    'Colby Jack Cheese',
-    'Monterey Jack',
-    'Pepper Jack',
-    'Havarti Cheese',
-    'Ricotta Cheese'
+    'Colby Jack Cheese'
   ],
   yogurt: [
     'Greek Yogurt',
@@ -92,11 +75,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Low-Fat Yogurt',
     'Non-Fat Yogurt',
     'Organic Yogurt',
-    'Plant-Based Yogurt',
-    'Coconut Yogurt',
-    'Skyr Yogurt',
-    'Drinkable Yogurt',
-    'Frozen Yogurt'
+    'Plant-Based Yogurt'
   ],
   bananas: [
     'Regular Bananas',
@@ -108,11 +87,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Baby Bananas',
     'Green Bananas',
     'Ripe Bananas',
-    'Frozen Bananas',
-    'Burro Bananas',
-    'Manzano Bananas',
-    'Apple Bananas',
-    'Goldfinger Bananas'
+    'Frozen Bananas'
   ],
   tomatoes: [
     'Roma Tomatoes',
@@ -124,11 +99,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Vine-Ripened Tomatoes',
     'Organic Tomatoes',
     'Green Tomatoes',
-    'Yellow Tomatoes',
-    'Plum Tomatoes',
-    'Pear Tomatoes',
-    'San Marzano Tomatoes',
-    'Kumato Tomatoes'
+    'Yellow Tomatoes'
   ],
   chicken: [
     'Chicken Breast',
@@ -140,11 +111,7 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Organic Chicken',
     'Free-Range Chicken',
     'Boneless Chicken',
-    'Skinless Chicken',
-    'Chicken Drumsticks',
-    'Air Chilled Chicken',
-    'Halal Chicken',
-    'Kosher Chicken'
+    'Skinless Chicken'
   ],
   rice: [
     'White Rice',
@@ -156,128 +123,11 @@ const PRODUCT_VARIETIES: { [key: string]: string[] } = {
     'Sushi Rice',
     'Long Grain Rice',
     'Short Grain Rice',
-    'Organic Rice',
-    'Black Rice',
-    'Red Rice',
-    'Sticky Rice',
-    'Parboiled Rice'
-  ],
-  // NEW DAILY PRODUCTS ADDED
-  toothpaste: [
-    'Colgate Total',
-    'Crest Pro-Health',
-    'Sensodyne Pronamel',
-    'Oral-B Pro-Health',
-    'Aquafresh White',
-    'Arm & Hammer Advance White',
-    'Tom\'s of Maine Natural',
-    'Hello Activated Charcoal',
-    'Parodontax Complete Protection',
-    'Listerine Essential Care',
-    'Close-Up Red Hot',
-    'Signal Cavity Protection',
-    'Pepsodent Germ Check',
-    'Dabur Red Paste'
-  ],
-  fruits: [
-    'Apples',
-    'Bananas',
-    'Oranges',
-    'Grapes',
-    'Strawberries',
-    'Blueberries',
-    'Raspberries',
-    'Mangoes',
-    'Pineapples',
-    'Watermelons',
-    'Peaches',
-    'Pears',
-    'Plums',
-    'Kiwi'
-  ],
-  vegetables: [
-    'Broccoli',
-    'Carrots',
-    'Spinach',
-    'Lettuce',
-    'Cucumbers',
-    'Bell Peppers',
-    'Onions',
-    'Garlic',
-    'Potatoes',
-    'Sweet Potatoes',
-    'Corn',
-    'Peas',
-    'Green Beans',
-    'Zucchini'
-  ],
-  beverages: [
-    'Orange Juice',
-    'Apple Juice',
-    'Cranberry Juice',
-    'Pomegranate Juice',
-    'Green Tea',
-    'Black Tea',
-    'Herbal Tea',
-    'Coffee Beans',
-    'Instant Coffee',
-    'Sparkling Water',
-    'Mineral Water',
-    'Sports Drinks',
-    'Energy Drinks',
-    'Soda'
-  ],
-  snacks: [
-    'Potato Chips',
-    'Tortilla Chips',
-    'Pretzels',
-    'Popcorn',
-    'Nuts Mix',
-    'Trail Mix',
-    'Granola Bars',
-    'Protein Bars',
-    'Cookies',
-    'Crackers',
-    'Rice Cakes',
-    'Dried Fruits',
-    'Beef Jerky',
-    'Cheese Puffs'
-  ],
-  personal_care: [
-    'Shampoo',
-    'Conditioner',
-    'Body Wash',
-    'Hand Soap',
-    'Deodorant',
-    'Body Lotion',
-    'Face Cream',
-    'Sunscreen',
-    'Razors',
-    'Shaving Cream',
-    'Toothbrushes',
-    'Dental Floss',
-    'Mouthwash',
-    'Cotton Swabs'
-  ],
-  cleaning: [
-    'Laundry Detergent',
-    'Dish Soap',
-    'All-Purpose Cleaner',
-    'Glass Cleaner',
-    'Bathroom Cleaner',
-    'Floor Cleaner',
-    'Disinfecting Wipes',
-    'Paper Towels',
-    'Toilet Paper',
-    'Trash Bags',
-    'Sponges',
-    'Dishwasher Detergent',
-    'Fabric Softener',
-    'Bleach'
+    'Organic Rice'
   ]
 }
 
-// Enhanced Hindi to English item mapping - EXPANDED
+// Enhanced Hindi to English item mapping
 const HINDI_ITEM_MAP: { [key: string]: string } = {
   'दूध': 'milk',
   'रोटी': 'bread',
@@ -329,20 +179,7 @@ const HINDI_ITEM_MAP: { [key: string]: string } = {
   'हल्दी': 'turmeric',
   'धनिया': 'coriander',
   'जीरा': 'cumin',
-  'मसाला': 'spices',
-  // NEW ITEMS ADDED
-  'टूथपेस्ट': 'toothpaste',
-  'मंजन': 'toothpaste', // Alternative name
-  'फल': 'fruits',
-  'सब्जियां': 'vegetables',
-  'पेय': 'beverages',
-  'नाश्ता': 'snacks',
-  'शैम्पू': 'shampoo',
-  'साबुन': 'soap',
-  'डिओडोरेंट': 'deodorant',
-  'डिटर्जेंट': 'detergent',
-  'टिश्यू': 'tissues',
-  'पेपर': 'paper'
+  'मसाला': 'spices'
 }
 
 // Hindi number mapping
@@ -366,7 +203,7 @@ export interface ProcessedVoiceResult {
 // Call Gemini API for variety suggestions
 async function callGeminiAPI(prompt: string): Promise<string> {
   try {
-    const GEMINI_API_KEY = (import.meta as any).env?.VITE_GEMINI_API_KEY || 'AIzaSyD55mHbcwKxjyfia_i1Vvh1v2E2ChGayAw'
+    const GEMINI_API_KEY = (import.meta as any).env?.VITE_GEMINI_API_KEY || 'AIzaSyDDRXyZPZvy2VSnaMkvsuSU_pKs3VGJWcs'
     const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
     
     const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
@@ -427,7 +264,7 @@ async function getVarietySuggestions(itemName: string): Promise<string[]> {
 async function correctHinglishToHindi(text: string): Promise<{correctedText: string, isRemoveCommand: boolean}> {
   try {
     // First check for common remove patterns in Hinglish
-    const removePatterns = ['hatao', 'hata', 'nikalo', 'delete'];
+    const removePatterns = ['hatao', 'hata', 'nikalo', 'delete', 'remove'];
     const isRemove = removePatterns.some(pattern => text.toLowerCase().includes(pattern));
     
     const prompt = `Correct this Hinglish (Hindi written in English letters) to proper Hindi text.
@@ -446,7 +283,13 @@ async function correctHinglishToHindi(text: string): Promise<{correctedText: str
     const response = await callGeminiAPI(prompt)
     if (response) {
       try {
-        const result = JSON.parse(response.trim())
+        // Clean the response - remove markdown code blocks if present
+        let cleanResponse = response.trim();
+        if (cleanResponse.startsWith('```json')) {
+          cleanResponse = cleanResponse.replace('```json', '').replace('```', '').trim();
+        }
+        
+        const result = JSON.parse(cleanResponse)
         console.log(`Corrected Hinglish "${text}" to:`, result)
         
         // If we detected a remove pattern but the API didn't, override it
@@ -468,7 +311,7 @@ async function correctHinglishToHindi(text: string): Promise<{correctedText: str
   }
   
   // Fallback: check if the original text contains remove patterns
-  const removePatterns = ['hatao', 'hata', 'nikalo', 'delete'];
+  const removePatterns = ['hatao', 'hata', 'nikalo', 'delete', 'remove'];
   const isRemoveCommand = removePatterns.some(pattern => text.toLowerCase().includes(pattern));
   return {correctedText: text, isRemoveCommand}
 }
@@ -503,37 +346,40 @@ async function extractItemFromHindiCommand(text: string): Promise<string> {
   }
   
   // Enhanced fallback logic for when Gemini returns an invalid response or fails
+  let processedText = text;
   try {
-    const parsedText = JSON.parse(text).correctedText;
-    text = parsedText;
+    const parsed = JSON.parse(text);
+    if (parsed.correctedText) {
+      processedText = parsed.correctedText;
+    }
   } catch (e) {
     // If text is not JSON, continue with the original text
   }
 
-  const removePatterns = [' हटाओ', ' हटा', ' निकालो', ' डिलीट करो']
+  const removePatterns = [' हटाओ', ' हटा', ' निकालो', ' डिलीट करो', ' remove', ' delete']
   for (const pattern of removePatterns) {
-    if (text.includes(pattern)) {
-      const item = text.split(pattern)[0].trim()
+    if (processedText.includes(pattern)) {
+      const item = processedText.split(pattern)[0].trim()
       if (item === 'चवाल') return 'चावल'
       return item
     }
   }
 
-  const addPatterns = [' जोड़ो', ' एड करो', ' डालो', ' लाओ', ' खरीदो']
+  const addPatterns = [' जोड़ो', ' एड करो', ' डालो', ' लाओ', ' खरीदो', ' add', ' buy']
   for (const pattern of addPatterns) {
-    if (text.includes(pattern)) {
-      const item = text.split(pattern)[0].trim()
+    if (processedText.includes(pattern)) {
+      const item = processedText.split(pattern)[0].trim()
       return item;
     }
   }
 
   // If it's a simple phrase, return the main word
-  const words = text.split(' ')
+  const words = processedText.split(' ')
   if (words.length > 0) {
     return words[words.length - 1]; // Assume last word is the item
   }
 
-  return text
+  return processedText
 }
 
 // Fallback suggestions if API fails
@@ -583,51 +429,76 @@ export const processVoiceCommand = async (
     
     console.log(`Processing command: "${text}" in ${language}`);
     
+    // Handle English commands first (simpler logic)
+    if (!isHindi) {
+      const englishResult = processEnglishCommand(text);
+      if (englishResult) {
+        console.log('English command processed:', englishResult);
+        return englishResult;
+      }
+    }
+    
+    // Handle Hindi/Hinglish commands
     if (isHindi) {
       const hasEnglishLetters = /[a-zA-Z]/.test(text);
+      
+      // Define remove patterns for both languages
+      const englishRemovePatterns = ['hatao', 'hata', 'nikalo', 'delete', 'remove'];
+      const hindiRemovePatterns = ['हटाओ', 'हटा', 'निकालो', 'डिलीट'];
+      
+      // Check for remove patterns in original text
+      const hasRemovePattern = 
+        englishRemovePatterns.some(pattern => text.toLowerCase().includes(pattern)) ||
+        hindiRemovePatterns.some(pattern => text.includes(pattern));
+      
+      let correctedText = text;
+      
       if (hasEnglishLetters) {
         const correctionResult = await correctHinglishToHindi(text);
-        if (correctionResult.correctedText !== text) {
-          console.log(`Using corrected Hindi: "${JSON.stringify(correctionResult)}"`);
-          text = correctionResult.correctedText;
-          isRemoveCommand = correctionResult.isRemoveCommand;
-        }
+        correctedText = correctionResult.correctedText;
+        isRemoveCommand = correctionResult.isRemoveCommand || hasRemovePattern;
       } else {
-        const removePatterns = ['हटाओ', 'हटा', 'निकालो', 'डिलीट']
-        isRemoveCommand = removePatterns.some(pattern => text.includes(pattern));
+        isRemoveCommand = hasRemovePattern;
       }
       
+      console.log(`Processed text: "${correctedText}", isRemoveCommand: ${isRemoveCommand}`);
+      
+      // Handle remove commands first
       if (isRemoveCommand) {
-        const itemName = await extractItemFromHindiCommand(text);
+        const itemName = await extractItemFromHindiCommand(correctedText);
         const englishItem = HINDI_ITEM_MAP[itemName] || itemName;
         
-        if (englishItem) {
+        console.log(`Remove command - Hindi item: "${itemName}", English item: "${englishItem}"`);
+        
+        if (englishItem && englishItem !== itemName) {
           return {
             type: 'remove',
             message: `${itemName} आपकी खरीदारी सूची से हटा दिया गया है।`,
             selectedItem: englishItem
           };
+        } else if (itemName) {
+          return {
+            type: 'remove',
+            message: `${itemName} आपकी खरीदारी सूची से हटा दिया गया है।`,
+            selectedItem: itemName
+          };
         } else {
           return {
             type: 'error',
-            message: `मैं "${itemName}" को पहचान नहीं पाया। कृपया कोई अन्य आइटम नाम कहें।`
+            message: `मैं आइटम को पहचान नहीं पाया। कृपया कोई अन्य आइटम नाम कहें।`
           };
         }
       }
       
-      const hindiResult = await processHindiCommand(text);
+      // Handle add commands and other Hindi commands
+      const hindiResult = await processHindiCommand(correctedText);
       if (hindiResult) {
         console.log('Hindi command processed:', hindiResult);
         return hindiResult;
       }
     }
-    
-    const englishResult = processEnglishCommand(text);
-    if (englishResult) {
-      console.log('English command processed:', englishResult);
-      return englishResult;
-    }
 
+    // If no command was processed, return error
     return {
       type: 'error',
       message: isHindi 
@@ -644,30 +515,32 @@ export const processVoiceCommand = async (
   }
 }
 
-// Process Hindi commands (add commands only) - UNCHANGED
-// Process Hindi commands (add commands only) - UNCHANGED
+// Process Hindi commands (add commands only)
 async function processHindiCommand(text: string): Promise<ProcessedVoiceResult | null> {
   console.log('Processing Hindi command:', text);
   const lowerText = text.toLowerCase();
   
-  if (lowerText.includes('साफ') || lowerText.includes('खाली')) {
+  // Handle clear command
+  if (lowerText.includes('साफ') || lowerText.includes('खाली') || lowerText.includes('clear')) {
     return {
       type: 'clear',
       message: 'आपकी खरीदारी सूची साफ कर दी गई है।'
     };
   }
   
-  const addPatterns = ['जोड़ो', 'ऐड करो', 'डालो', 'लाओ', 'खरीदो', 'चाहिए'];
+  const addPatterns = ['जोड़ो', 'ऐड करो', 'डालो', 'लाओ', 'खरीदो', 'चाहिए', 'add', 'buy'];
   const hasAddPattern = addPatterns.some(pattern => lowerText.includes(pattern));
 
   let extractedItem = '';
   let extractedQuantity = 1;
 
+  // First try to extract item and quantity from known Hindi items
   for (const [hindiItem, englishItem] of Object.entries(HINDI_ITEM_MAP)) {
     const hindiItemLower = hindiItem.toLowerCase();
     if (lowerText.includes(hindiItemLower)) {
       extractedItem = hindiItem;
 
+      // Extract quantity
       for (const [hindiNumber, quantity] of Object.entries(HINDI_NUMBERS)) {
         if (lowerText.includes(`${hindiNumber.toLowerCase()} ${hindiItemLower}`) ||
             lowerText.includes(`${quantity} ${hindiItemLower}`)) {
@@ -679,6 +552,7 @@ async function processHindiCommand(text: string): Promise<ProcessedVoiceResult |
     }
   }
 
+  // If item found, process it
   if (extractedItem) {
     const englishItem = HINDI_ITEM_MAP[extractedItem] || extractedItem;
     const category = getCategoryForProduct(englishItem);
@@ -700,6 +574,7 @@ async function processHindiCommand(text: string): Promise<ProcessedVoiceResult |
     };
   }
 
+  // If add pattern but no recognized item
   if (hasAddPattern) {
     return {
       type: 'error',
@@ -707,12 +582,13 @@ async function processHindiCommand(text: string): Promise<ProcessedVoiceResult |
     };
   }
 
-  const words = lowerText.split(' ');
+  // Handle single word items
+  const words = text.split(' ').filter(word => word.trim().length > 0);
   if (words.length === 1) {
     const singleWord = words[0];
     const englishItem = HINDI_ITEM_MAP[singleWord] || singleWord;
     
-    if (englishItem) {
+    if (englishItem && HINDI_ITEM_MAP[singleWord]) {
       const category = getCategoryForProduct(englishItem);
       const unit = getDefaultUnit(englishItem);
       
@@ -745,6 +621,29 @@ function processEnglishCommand(text: string): ProcessedVoiceResult | null {
       type: 'clear',
       message: 'Cleared your shopping list.'
     };
+  }
+  
+  // Enhanced remove command handling
+  const removePatterns = [
+    /(remove|delete|take off|get rid of)\s+(\w+)/i,
+    /(\w+)\s+(remove|delete)/i,
+    /no more\s+(\w+)/i,
+    /don't need\s+(\w+)/i,
+    /cancel\s+(\w+)/i
+  ];
+  
+  for (const pattern of removePatterns) {
+    const removeMatch = lowerText.match(pattern);
+    if (removeMatch) {
+      const itemName = removeMatch[2] || removeMatch[1];
+      if (itemName && itemName !== 'remove' && itemName !== 'delete') {
+        return {
+          type: 'remove',
+          message: `Removed ${itemName} from your shopping list.`,
+          selectedItem: itemName
+        };
+      }
+    }
   }
   
   // Enhanced quantity matching - handle both "5 apples" and "five apples"
@@ -824,18 +723,6 @@ function processEnglishCommand(text: string): ProcessedVoiceResult | null {
     };
   }
   
-  // Handle remove commands
-  const removeMatch = lowerText.match(/(remove|delete|take off|get rid of)\s+(\w+)/i);
-  if (removeMatch) {
-    const itemName = removeMatch[2];
-    
-    return {
-      type: 'remove',
-      message: `Removed ${itemName} from your shopping list.`,
-      selectedItem: itemName
-    };
-  }
-  
   // Handle standalone items with quantities (e.g., "5 apples", "three bananas")
   const standaloneQuantityMatch = lowerText.match(/^(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(\w+)$/i);
   if (standaloneQuantityMatch) {
@@ -873,9 +760,7 @@ function processEnglishCommand(text: string): ProcessedVoiceResult | null {
   const commonItems = [
     'milk', 'bread', 'eggs', 'rice', 'tea', 'coffee', 'sugar', 'salt',
     'oil', 'flour', 'apple', 'banana', 'orange', 'tomato', 'potato',
-    'onion', 'chicken', 'cheese', 'yogurt', 'butter', 'toothpaste', 'fruit',
-    'pasta', 'cereal', 'juice', 'water', 'soda', 'chips', 'cookies', 'chocolate',
-    'ice cream', 'vegetables', 'meat', 'fish', 'shampoo', 'soap', 'detergent'
+    'onion', 'chicken', 'cheese', 'yogurt', 'butter'
   ];
   
   if (commonItems.includes(lowerText)) {
@@ -905,8 +790,7 @@ const getCategoryForProduct = (product: string): string => {
   
   if (lowerProduct.includes('apple') || lowerProduct.includes('banana') || 
       lowerProduct.includes('orange') || lowerProduct.includes('tomato') || 
-      lowerProduct.includes('potato') || lowerProduct.includes('onion') ||
-      lowerProduct.includes('fruit') || lowerProduct.includes('vegetable')) {
+      lowerProduct.includes('potato') || lowerProduct.includes('onion')) {
     return 'produce';
   }
   
@@ -916,9 +800,7 @@ const getCategoryForProduct = (product: string): string => {
     return 'dairy';
   }
   
-  if (lowerProduct.includes('bread') || lowerProduct.includes('pasta') || 
-      lowerProduct.includes('cereal') || lowerProduct.includes('cookies') ||
-      lowerProduct.includes('cake') || lowerProduct.includes('biscuit')) {
+  if (lowerProduct.includes('bread')) {
     return 'bakery';
   }
   
@@ -930,25 +812,8 @@ const getCategoryForProduct = (product: string): string => {
   if (lowerProduct.includes('rice') || lowerProduct.includes('flour') || 
       lowerProduct.includes('sugar') || lowerProduct.includes('salt') || 
       lowerProduct.includes('oil') || lowerProduct.includes('tea') || 
-      lowerProduct.includes('coffee') || lowerProduct.includes('spices') ||
-      lowerProduct.includes('noodles')) {
+      lowerProduct.includes('coffee')) {
     return 'pantry';
-  }
-  
-  if (lowerProduct.includes('toothpaste') || lowerProduct.includes('shampoo') ||
-      lowerProduct.includes('soap') || lowerProduct.includes('deodorant') ||
-      lowerProduct.includes('detergent')) {
-    return 'personal care';
-  }
-  
-  if (lowerProduct.includes('juice') || lowerProduct.includes('water') ||
-      lowerProduct.includes('soda') || lowerProduct.includes('drink')) {
-    return 'beverages';
-  }
-  
-  if (lowerProduct.includes('chips') || lowerProduct.includes('snacks') ||
-      lowerProduct.includes('chocolate') || lowerProduct.includes('ice cream')) {
-    return 'snacks';
   }
   
   return 'general';
@@ -959,8 +824,7 @@ const getDefaultUnit = (item: string): string => {
   
   if (lowerItem.includes('apple') || lowerItem.includes('banana') || 
       lowerItem.includes('orange') || lowerItem.includes('tomato') || 
-      lowerItem.includes('potato') || lowerItem.includes('onion') ||
-      lowerItem.includes('fruit') || lowerItem.includes('vegetable')) {
+      lowerItem.includes('potato') || lowerItem.includes('onion')) {
     return 'piece';
   }
   
@@ -978,17 +842,6 @@ const getDefaultUnit = (item: string): string => {
   if (lowerItem.includes('tea')) return 'box';
   if (lowerItem.includes('coffee')) return 'bag';
   if (lowerItem.includes('butter')) return 'pack';
-  if (lowerItem.includes('toothpaste')) return 'tube';
-  if (lowerItem.includes('shampoo')) return 'bottle';
-  if (lowerItem.includes('soap')) return 'bar';
-  if (lowerItem.includes('detergent')) return 'bottle';
-  if (lowerItem.includes('juice')) return 'bottle';
-  if (lowerItem.includes('water')) return 'bottle';
-  if (lowerItem.includes('soda')) return 'can';
-  if (lowerItem.includes('chips')) return 'bag';
-  if (lowerItem.includes('cookies')) return 'pack';
-  if (lowerItem.includes('chocolate')) return 'bar';
-  if (lowerItem.includes('ice cream')) return 'tub';
   
   return 'piece';
 }
