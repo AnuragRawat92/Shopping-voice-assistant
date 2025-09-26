@@ -6,8 +6,11 @@ import { motion } from "framer-motion";
 interface AuthProps {
   setIsAuthenticated: (isAuthenticated: boolean) => void;
 }
-const BACKEND_URL = "https://bluecart-backend.onrender.com";
 
+const BACKEND_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3001"
+    : "https://bluecart-backend.onrender.com";
 
 
 const Auth: React.FC<AuthProps> = ({ setIsAuthenticated }) => {
