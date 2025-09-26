@@ -8,9 +8,7 @@ interface AuthProps {
 }
 const BACKEND_URL = "https://bluecart-backend.onrender.com";
 
-if (window.location.hostname === "localhost") {
-  BACKEND_URL = "http://localhost:3001"; // local backend
-}
+
 
 const Auth: React.FC<AuthProps> = ({ setIsAuthenticated }) => {
   const [isLogin, setIsLogin] = useState(true);
