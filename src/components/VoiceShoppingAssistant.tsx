@@ -19,7 +19,7 @@ interface VoiceShoppingAssistantProps {
   selectedLanguage: string
 }
 
-// Add a Hindi-to-English item map for consistency
+// Hindi-to-English item map for consistency (should match the one in voiceProcessor)
 const HINDI_ITEM_MAP: { [key: string]: string } = {
   'दूध': 'milk',
   'रोटी': 'bread',
@@ -72,6 +72,12 @@ const HINDI_ITEM_MAP: { [key: string]: string } = {
   'मसाला': 'spices'
 }
 
+// Create reverse mapping for English to Hindi
+const ENGLISH_ITEM_MAP: { [key: string]: string } = {};
+Object.entries(HINDI_ITEM_MAP).forEach(([hindi, english]) => {
+  ENGLISH_ITEM_MAP[english] = hindi;
+});
+
 const VoiceShoppingAssistant: React.FC<VoiceShoppingAssistantProps> = ({
   shoppingList,
   onAddItem,
@@ -99,14 +105,71 @@ const VoiceShoppingAssistant: React.FC<VoiceShoppingAssistantProps> = ({
     }
   }, [shoppingList])
 
-  // Helper function to get the Hindi name from the English name (or vice-versa)
-  const getHindiName = (englishName: string) => {
-    const entry = Object.entries(HINDI_ITEM_MAP).find(([hindi, english]) => english === englishName.toLowerCase());
-    return entry ? entry[0] : englishName;
+  // Helper function to find item by name (handles both Hindi and English)
+  const findItemByName = (itemName: string): ShoppingItem | undefined => {
+    console.log('Searching for item:', itemName);
+    console.log('Shopping list:', shoppingList);
+    
+    const lowerCaseName = itemName.toLowerCase();
+    
+    // First, try direct match with the exact name
+    let item = shoppingList.find(item => 
+      item.name.toLowerCase() === lowerCaseName
+    );
+    
+    if (item) {
+      console.log('Found by direct match:', item);
+      return item;
+    }
+    
+    // If not found, try matching through translation
+    if (selectedLanguage === 'hi-IN') {
+      // If we're in Hindi mode and have an English item name from voice processor, try Hindi equivalent
+      const hindiEquivalent = ENGLISH_ITEM_MAP[itemName.toLowerCase()];
+      console.log('Hindi equivalent for', itemName, ':', hindiEquivalent);
+      
+      if (hindiEquivalent) {
+        item = shoppingList.find(item => 
+          item.name.toLowerCase() === hindiEquivalent.toLowerCase()
+        );
+        if (item) {
+          console.log('Found by Hindi translation:', item);
+          return item;
+        }
+      }
+    } else {
+      // If we're in English mode and have a Hindi item name, try English equivalent
+      const englishEquivalent = HINDI_ITEM_MAP[itemName];
+      console.log('English equivalent for', itemName, ':', englishEquivalent);
+      
+      if (englishEquivalent) {
+        item = shoppingList.find(item => 
+          item.name.toLowerCase() === englishEquivalent.toLowerCase()
+        );
+        if (item) {
+          console.log('Found by English translation:', item);
+          return item;
+        }
+      }
+    }
+    
+    // Last resort: partial match
+    item = shoppingList.find(item => 
+      item.name.toLowerCase().includes(lowerCaseName) || 
+      lowerCaseName.includes(item.name.toLowerCase())
+    );
+    
+    if (item) {
+      console.log('Found by partial match:', item);
+    } else {
+      console.log('Item not found');
+    }
+    
+    return item;
   }
 
   const handleTranscript = async (newTranscript: string) => {
-    console.log('Processing transcript:', newTranscript)
+    console.log('Processing transcript:', newTranscript, 'Language:', selectedLanguage)
     setTranscript(newTranscript)
     setIsProcessing(true)
 
@@ -134,15 +197,13 @@ const VoiceShoppingAssistant: React.FC<VoiceShoppingAssistantProps> = ({
 
         case 'remove':
           if (result.selectedItem) {
-            // Get the item's name in the list's language (Hindi in this case)
-            const itemNameToRemove = getHindiName(result.selectedItem);
+            console.log('Attempting to remove item:', result.selectedItem)
             
-            // Find the item to remove using an exact match on the name
-            const itemToRemove = shoppingList.find(item => 
-              item.name.toLowerCase() === itemNameToRemove.toLowerCase()
-            )
+            // Find the item using our improved matching function
+            const itemToRemove = findItemByName(result.selectedItem)
             
             if (itemToRemove) {
+              console.log('Found item to remove:', itemToRemove)
               onRemoveItem(itemToRemove.id)
               toast.success(result.message, {
                 icon: '🗑️',
@@ -156,8 +217,13 @@ const VoiceShoppingAssistant: React.FC<VoiceShoppingAssistantProps> = ({
                 }
               })
             } else {
+              console.log('Item not found in list')
               // Item not found, inform the user
-              toast.error(`"${itemNameToRemove}" आपकी सूची में नहीं है।`, {
+              const errorMessage = selectedLanguage === 'hi-IN' 
+                ? `"${result.selectedItem}" आपकी सूची में नहीं है।`
+                : `"${result.selectedItem}" is not in your list.`;
+              
+              toast.error(errorMessage, {
                 icon: '🤔',
                 style: {
                   background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
@@ -209,6 +275,24 @@ const VoiceShoppingAssistant: React.FC<VoiceShoppingAssistantProps> = ({
               }
             })
           }
+          break
+
+        case 'clear':
+          // Clear all items from the shopping list
+          shoppingList.forEach(item => {
+            onRemoveItem(item.id)
+          })
+          toast.success(result.message, {
+            icon: '🗑️',
+            style: {
+              background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+              color: 'white',
+              borderRadius: '16px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+              backdropFilter: 'blur(10px)'
+            }
+          })
           break
 
         case 'error':
@@ -321,6 +405,7 @@ const VoiceShoppingAssistant: React.FC<VoiceShoppingAssistantProps> = ({
           setIsListening={setIsListening}
           onTranscript={handleTranscript}
           isProcessing={isProcessing}
+          selectedLanguage={selectedLanguage}
         />
         
         <ShoppingList
