@@ -1,7 +1,7 @@
 import { ShoppingItem } from '../types'
 
 // Gemini API configuration
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyDgRyfdPMsmQwUx9CyeTDgO_sE8b8iskxw'
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyDDRXyZPZvy2VSnaMkvsuSU_pKs3VGJWcs'
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
 
 interface GeminiResponse {
